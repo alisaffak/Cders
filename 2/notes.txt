@@ -1,0 +1,124 @@
+Okunacak kitaplar; Yazılım mimarisi, Clean kod yazma, Veri Yapıları
+
+ali.c -> source file, source code, implementation file
+
+object file -> hedef dosyası, amaç dosyası(derleyici kodun çıktısıdır)
+
+önişlemci programı # ile başlayan kod satırlarını önden işler
+
+hatalar -> preporeccesing time, compile time, link time, run time 
+
+çok yüksek olasılık
+    error       object code üretilemeyecek  
+
+düşük olasılık
+    warning object code üretilebilir
+
+düşük olasılık
+    no diagnostic required
+
+yanlışlıkla yazılan kodların dilin kurallarına göre geçerli olması
+hataları azaltmak için static code analyzer kullanılabilir
+
+C/C++ compilers "optimizing compilers"
+
+Token: derleyici tarafından kaynak kodun anlam taşıyan en küçük birimine denir.(Türkçesi: Atom)
+tokenizing: derleyici ilk önce kaynak kodu kendisinin anlayabileceği en küçük birimlere ayırır
+Bunlar keyword(anahtar sözcük), identifier(isim), constant/literal(sabit), operator, string literal(string sabiti), 
+delimiter(ayıraç)
+
+"x += cnt;" tek token
+x 
++=
+cnt
+;    her satır bir token
+===================================
+C'de her ifade aşağıdaki kategorilerden birine ait olmak zorunda
+    i)  L value expression (sol taraf değeri ifadesi)
+    ii) R value expression (sağ taraf değeri ifadesi)
+
+L value expression bellekte erişebileceğimiz ve okuma yapabileceğimiz ifadeler  (bir nesneye karşılık gelen ifade)
+R value expression                                                              (bir nesneye karşılık gelmeyen ifade)
+
+======================================
+x (L value)
+x + 5 (R value)
+*ptr , a[5] (L value)
+
+
+&          adress of operator
+a & b      bitwise and operator
+
+adres operatorünün operandı olursa L value expression olur
+
+Atama operatörünün sol tarafı L value expression olması lazım mesela 
+
+int x = 10;
+x + 5 = 10; bu kod hata verir çalışmaz çünkü atama operatörünün sağ tarafı R valuedir.
+========================================
+
+constant expression
+
+Öyle ifadeler var ki derleyici, derleme zamanında, kaynak koda bakarak ifadenin değerini hesaplayabilir.
+Eğer bir ifade constant expression ise derleyici koda bakarak anlar.
+
+a[x] , case x: (burada x constant expression olmak zorunda)
+============================================
+
+ÖZET
+declaration
+statement
+expression
+object
+data type
+value category
+    L value expression
+    R value expression
+
+constant expression
+non-constant expression
+
+===========================================
+veri türleri
+
+_Bool type (C 99) (unsigned)
+
+char types [1 byte]
+--------------
+    signed char             [-128 127]
+    unsigned char           [0 255]
+    char (derleyiciye bağlı olarak işaretli veya işaretsiz olabilir)
+
+
+short integer types [2 byte]
+------------------
+    signed char            [-32768 32767]
+    unsigned char          [0 65535]
+
+(normal)integer types      [2 / 4 / 8 byte olabilir] (bende 4 byte)
+-------------------
+    signed int              [-2147483648 2147483647]
+    unsigned int            [0 4294...]
+
+long integer types 
+------------------
+    signed long int         [-9 kentilyon küsür + ]
+    unsigned long int       [0 18 kentilyon küsür]
+
+long long integer types(C 99) [en az 8 byte olmalı]
+-----------------------------
+    signed long long int    
+    unsigned long long int
+
+ 
+
+
+
+
+
+
+
+
+
+
+
